@@ -15,7 +15,7 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
   };
 
   return (
-    <header className="w-full font-sans select-none sticky top-0 z-40 bg-[#3f444a] shadow-md">
+    <header className="w-full font-sans select-none sticky top-0 z-40 bg-[#3f444a] shadow-md overflow-x-hidden">
       
       {/* ── MAIN GENISYS-STYLE HEADER CONTAINER WITH ANGLED LOGO BADGE ── */}
       <div className="max-w-7xl mx-auto flex items-stretch h-16 sm:h-20 relative">
@@ -23,11 +23,11 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
         {/* Left Side: Angled White Logo Badge Container */}
         <div 
           onClick={() => handleNavClick('home')}
-          className="cursor-pointer bg-white px-4 sm:px-8 flex items-center gap-3 z-20 relative genisys-badge-clip pr-10 sm:pr-14 transition-transform hover:opacity-95"
+          className="cursor-pointer bg-white px-3 sm:px-6 flex items-center gap-2 sm:gap-3 z-20 relative pr-8 sm:pr-12 flex-shrink-0 transition-transform hover:opacity-95"
           style={{ clipPath: 'polygon(0 0, 88% 0, 100% 100%, 0 100%)' }}
         >
           {/* Eyeball / Rainbow Lens Logo Icon */}
-          <div className="w-10 h-10 sm:w-12 sm:h-12 relative flex items-center justify-center flex-shrink-0">
+          <div className="w-9 h-9 sm:w-11 sm:h-11 relative flex items-center justify-center flex-shrink-0">
             <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
               <ellipse cx="50" cy="50" rx="46" ry="26" fill="none" stroke="#0066b2" strokeWidth="9" />
               <circle cx="50" cy="50" r="18" fill="#f37021" />
@@ -46,29 +46,29 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
 
           {/* Brand Name: MicroNanoFabSoft */}
           <div className="flex flex-col justify-center leading-none">
-            <span className="text-xl sm:text-2xl font-black text-[#2d3136] tracking-tight font-sans">
+            <span className="text-lg sm:text-xl font-black text-[#2d3136] tracking-tight font-sans">
               Micro<span className="text-[#0066b2]">Nano</span><span className="text-[#f37021]">Fab</span>Soft
             </span>
-            <span className="text-[9px] font-bold text-slate-500 tracking-wider uppercase mt-0.5 hidden sm:block">
-              Micro & Nano Lithography Simulation
+            <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 tracking-wider uppercase mt-0.5 hidden xs:block">
+              Micro &amp; Nano Simulation
             </span>
           </div>
         </div>
 
         {/* Right Side: Dark Charcoal Nav Links (#3f444a) */}
-        <div className="flex-1 bg-[#3f444a] flex items-center justify-between px-4 sm:px-6 text-white">
+        <div className="flex-1 bg-[#3f444a] flex items-center justify-between px-2 sm:px-4 text-white overflow-hidden">
           
           {/* Desktop Navigation Links with Rich Dropdowns */}
-          <nav className="hidden xl:flex items-center gap-5 text-xs font-bold tracking-wider uppercase">
+          <nav className="hidden xl:flex items-center gap-2 2xl:gap-4 text-[11px] 2xl:text-xs font-bold tracking-wider uppercase flex-shrink">
             
             {/* 1. PRODUCTS Dropdown */}
             <div className="relative" onMouseEnter={() => setOpenDropdown('products')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('home')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${['home','beamer','lab','tracer','prosem','beamer-3d'].includes(currentPage) ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${['home','beamer','lab','tracer','prosem','beamer-3d'].includes(currentPage) ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>PRODUCTS</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'products' && (
@@ -102,10 +102,10 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             <div className="relative" onMouseEnter={() => setOpenDropdown('applications')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('applications')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'applications' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'applications' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>APPLICATIONS</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'applications' && (
@@ -131,10 +131,10 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             <div className="relative" onMouseEnter={() => setOpenDropdown('inaction')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('in-action')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'in-action' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'in-action' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>IN-ACTION</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'inaction' && (
@@ -156,10 +156,10 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             <div className="relative" onMouseEnter={() => setOpenDropdown('download')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('download')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'download' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'download' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>DOWNLOAD</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'download' && (
@@ -182,10 +182,10 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             <div className="relative" onMouseEnter={() => setOpenDropdown('corporate')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('corporate')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'corporate' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'corporate' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>CORPORATE</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'corporate' && (
@@ -207,7 +207,7 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             {/* 6. SOFTWARE PORTAL (PROTECTED) */}
             <button 
               onClick={() => handleNavClick('software-portal')}
-              className={`hover:text-amber-400 transition-colors flex items-center gap-1 ${currentPage === 'software-portal' ? 'text-amber-400 font-bold' : 'text-slate-200'}`}
+              className={`hover:text-amber-400 transition-colors flex items-center gap-1 px-1.5 ${currentPage === 'software-portal' ? 'text-amber-400 font-bold' : 'text-slate-200'}`}
             >
               <Lock className="w-3.5 h-3.5 text-amber-400" />
               <span>PORTAL</span>
@@ -217,10 +217,10 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             <div className="relative" onMouseEnter={() => setOpenDropdown('support')} onMouseLeave={() => setOpenDropdown(null)}>
               <button 
                 onClick={() => handleNavClick('support')}
-                className={`py-5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'support' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+                className={`py-5 px-1.5 flex items-center gap-1 hover:text-[#00a3e0] transition-colors ${currentPage === 'support' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
               >
                 <span>SUPPORT</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <ChevronDown className="w-3 h-3 text-slate-400" />
               </button>
 
               {openDropdown === 'support' && (
@@ -242,15 +242,15 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             {/* 8. CONTACT */}
             <button 
               onClick={() => handleNavClick('contact')}
-              className={`hover:text-[#00a3e0] transition-colors ${currentPage === 'contact' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
+              className={`hover:text-[#00a3e0] transition-colors px-1.5 ${currentPage === 'contact' ? 'text-[#00a3e0]' : 'text-slate-200'}`}
             >
               CONTACT
             </button>
 
           </nav>
 
-          {/* Right Action Utilities (Search, Auth, Lang) */}
-          <div className="flex items-center gap-3 sm:gap-4 ml-auto xl:ml-0">
+          {/* Right Action Utilities (Search, Auth, Lang) - Always visible & flex-shrink-0 */}
+          <div className="flex items-center gap-2 sm:gap-3 ml-auto flex-shrink-0 z-30">
             
             {/* Quick Search */}
             <button 
@@ -262,14 +262,14 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             </button>
 
             {/* Language Switcher EN | DE */}
-            <div className="flex items-center bg-black/20 rounded px-2 py-1 text-[11px] font-bold">
+            <div className="flex items-center bg-black/20 rounded px-1.5 py-1 text-[10px] sm:text-[11px] font-bold">
               <button 
                 onClick={() => toggleLanguage('EN')}
                 className={`px-1 rounded ${lang === 'EN' ? 'bg-[#0066b2] text-white' : 'text-slate-300'}`}
               >
                 EN
               </button>
-              <span className="px-1 text-slate-500">|</span>
+              <span className="px-0.5 text-slate-500">|</span>
               <button 
                 onClick={() => toggleLanguage('DE')}
                 className={`px-1 rounded ${lang === 'DE' ? 'bg-[#0066b2] text-white' : 'text-slate-300'}`}
@@ -289,14 +289,14 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
               </button>
             )}
 
-            {/* Login / User Widget */}
+            {/* Login / User Widget - Always visible */}
             {currentUser ? (
-              <div className="flex items-center gap-2 bg-[#2d3136] border border-slate-600 rounded-full px-3 py-1 text-xs">
+              <div className="flex items-center gap-1.5 bg-[#2d3136] border border-slate-600 rounded-full px-2.5 py-1 text-xs">
                 <User className="w-3.5 h-3.5 text-[#00a3e0]" />
-                <span className="font-bold max-w-[90px] truncate">{currentUser.username}</span>
+                <span className="font-bold max-w-[70px] sm:max-w-[100px] truncate text-[11px] sm:text-xs">{currentUser.username}</span>
                 <button 
                   onClick={onLogout}
-                  className="text-red-400 hover:text-red-300 p-0.5 ml-1"
+                  className="text-red-400 hover:text-red-300 p-0.5"
                   title="Log Out"
                 >
                   <LogOut className="w-3.5 h-3.5" />
@@ -305,7 +305,7 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             ) : (
               <button 
                 onClick={onOpenAuth}
-                className="bg-[#0066b2] hover:bg-[#0055a0] text-white font-bold text-xs px-4 py-1.5 rounded-full transition-colors shadow uppercase tracking-wider"
+                className="bg-[#0066b2] hover:bg-[#0055a0] text-white font-bold text-xs px-3 sm:px-4 py-1.5 rounded-full transition-colors shadow uppercase tracking-wider flex-shrink-0"
               >
                 LOGIN
               </button>
@@ -314,7 +314,7 @@ export const Header = ({ currentPage, setCurrentPage, onOpenSearch, onOpenAuth, 
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="xl:hidden p-2 text-slate-200 hover:text-white"
+              className="xl:hidden p-1.5 text-slate-200 hover:text-white"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
