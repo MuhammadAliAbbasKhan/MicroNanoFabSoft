@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Core Reset & Fonts */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #2d3136;
+  background-color: #f4f5f7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* GenISys Header Angled White Logo Badge Effect */
+.genisys-badge-clip {
+  clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.genisys-badge-shadow {
+  filter: drop-shadow(4px 0 6px rgba(0,0,0,0.25));
+}
+
+/* Rainbow Gradient Bottom Line */
+.rainbow-stripe {
+  height: 4px;
+  background: linear-gradient(to right, #e81c24, #f37021, #ffc20e, #23b14d, #00a3e0, #0066b2, #92278f);
+}
+
+/* Card & Button Utilities */
+.genisys-card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.genisys-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile Responsiveness Protection */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
